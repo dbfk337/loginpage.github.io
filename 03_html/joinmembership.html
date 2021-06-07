@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 모바일</title>
+    
+    <style>
+        *{margin:0; padding:0;}
+        li{list-style:none;}
+        a{
+            text-decoration:none;
+            display:block;
+            color:#333;
+        }
+
+        #form h3{
+            position:relative;
+            border-bottom: 1px solid #ccc;
+            margin:50px 0px;
+            padding-left:20px;
+            padding-bottom: 5px;
+            font-size: 22px;
+        }
+
+        #form h3::before{
+            content:'';
+            /* display:block; */
+            width:137px;
+            height: 3px;
+            background-color: #A80417;
+            position:absolute;
+            bottom:-5px;
+            bottom: 0;
+            /* border:1px solid #ddd; */
+
+            /* 선을 2겹으로 주고싶으면 먼저 밑줄을 긋고
+            before로 짧은 선을 만들어주기 */
+        }
+
+        #form input[type="text"], input[type="password"]{
+            width:383px;
+            height:40px;
+            border:1px solid darkgrey;
+            text-indent:10px;
+            color:darkgrey;
+        }
+
+        #form input[type="text"]:focus , input[type="password"]:focus{
+        border:1px solid transparent;
+        outline: 2px solid #A80417;
+        }   
+
+        #form div{
+            margin-bottom:20px;
+        }
+
+
+        fieldset{
+            border:0;
+            width:383px;
+            margin:0 auto;
+        }
+        /* fieldset값한테 width값이랑 마진값을 주면 감싸고있기때문에
+        위치 준 곳의 가운데로 옮겨진다. */
+        legend{
+            position:absolute;
+            left:-99999999999px;
+        }
+        #form {
+            width:428px;
+            margin:0 auto;
+            padding-top:20px;
+        }
+
+        #form label{
+            
+            display:block;
+            padding-bottom:5px;
+        }
+
+        #form .address input{
+                margin :2px 0;
+        }
+
+        #form .address span{
+            display:block;
+        }
+
+        #form .address .addr1{
+            width:68px;
+        }
+
+        #form .address .addr02{
+            height:42px;
+            width:98px;
+            position:relative;
+            top:2px;
+            background-color:black;
+            border:none; 
+            color:white;
+        }
+
+        #form input[type="checkbox"]+label
+        {
+            display:inline-block;
+        }
+
+        #form .phone select{
+            width:70px;
+            height:44px;
+        }
+        /* select값이랑 버튼값이랑 일반 높이주는 값이랑 전부다 높이가 1,2센치 미묘하게 달라서 임의로 맞춰줘야함 */
+        #form .phone input {
+            width: 198px;
+        }
+
+
+        #form .phone .in{
+            width:103px;
+            height:42px;
+            /* padding-bottom:2px; */ 
+            /* 
+             라인 움직여줄때는
+            패딩값은 내부여백이니까 패딩값보다는 
+            포지션으로 자기혼자 움직여주는 position: relative;를 주는것이
+            낫다 
+
+            마진값은 형제태그까지 같이 움직여주기때문에 비추..
+            */
+            position: relative;
+            top:1px;
+            background-color:black;
+            border:none; 
+            color:white;
+        }
+
+        #form .gender span{
+            margin-right:50px;
+        }
+        /* input하면 동그라미 옆의 간격이생기니까
+        글자를 감싸고있는 span한테 간격을 주기 */
+
+        #form .link div{
+            margin-bottom:10px;
+        }
+
+        #form .link .link_in div{
+            margin-left:10px;
+            margin-bottom:5px;
+        }
+
+        .button{
+            text-align:center;
+        }
+
+        .button input{
+            width:120px;
+            height:40px;
+            
+        }
+
+        .button input[type="reset"]
+        {
+            background-color: ivory;
+            border:1px solid #ddd;
+        }
+
+        .button input[type="submit"]
+        {
+            background-color:#A80417;
+            border:1px solid #ddd;
+            color:white;
+        }
+
+
+        .but::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .link .link_in .but{
+            border:0;
+            float: right;
+            background-color: transparent;
+        }
+
+        
+
+        .link_in input[type="button"]:focus{
+            border:0;
+            outline: transparent;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="form">
+        <form action="" method="post">
+           
+            <h3>회원가입</h3>
+        
+        <fieldset>
+           <div class="f01" >
+            <legend>개인정보</legend>
+            <div>
+                <label for="em">아이디(이메일)</label>
+                <input type="text" id="em" placeholder="이메일주소" required autofocus>
+            </div>
+
+            <div>
+                <label for="pass">비밀번호</label>
+                <input type="password" id="pass" placeholder="비밀번호" required autofocus>
+            </div>
+
+            <div>
+                <label for="pass">비밀번호</label>
+                <input type="password" id="pass" placeholder="비밀번호 확인" required autofocus>
+            </div>
+
+            <div class="address">
+                <label>주소</label>
+               <input type="text" name="addr" id="addr1" class="addr1"><!-- 굳이dlv를 안주고 안에 class명을 줘도됨 -->
+                <input type="button" value="우편번호" class="addr02"> 
+                <span><input type="text" name="addr" placeholder="주소를 입력해주세요" required></span>
+                <input type="text" name="addr" placeholder="상세주소를 입력해주세요" requred>
+                </div>
+
+            <div>
+                <label for="name">이름</label>
+                <input type="text" id="name" placeholder="실명을 입력하세요" required>
+            </div>
+
+            <div class="phone">
+                <label>휴대폰 번호 </label>
+                <Select>
+                    <option>010</option> 
+                    <option>011</option>
+                    <option>016</option>
+                    <option>017</option>
+                    <option>018</option>
+                    <option>019</option>
+                </Select>  
+                <span><input type="text" name="addr" id="addr1" placeholder="'-'구분없이 입력">  </span>
+                <input type="button" value="인증번호 전송" class="in">
+            </div>
+
+
+            <div>
+                <label>인증번호</label>
+                <input type="text" placeholder="인증번호 입력">
+            </div>
+
+            <div>
+                <label>생년월일</label>
+                <input type="text" placeholder="8자리 입력">
+            </div>
+
+            <div class="gender">
+                <label>성별</label>
+                <input type="radio" name="gender" value="woman">
+                <span>여성</span>
+                <input type="radio" name="gender" value="man">
+                <span>남성</span>
+            </div>
+
+            <div class="link">
+                <label>이용약관 동의</label>
+                <div>
+                    <input id="consent" type="checkbox" name="consent" value="cont">
+                    <label for="consent">모두 동의 합니다</label>
+                </div>
+
+                <div class="link_in">
+                <div>
+                    <input  type="checkbox" name="consent" value="cont01">
+                    <label for="consent">이용약관동의</label>
+                    <input type="button" value="보기 〉" class="but">
+                </div>
+
+                <div>
+                    <input  type="checkbox" name="consent" value="cont02">
+                    <label for="consent">개인정보 취급방침 동의</label>
+                    <input type="button" value="보기 〉" class="but">
+                </div>
+                
+               
+                <div>  
+                    <input  type="checkbox" name="consent" value="cont03">
+                    <label for="consent">마케팅 정보 수신 동의</label>
+                    <input type="button" value="보기 〉" class="but">
+                </div>
+             </div> 
+
+            </div>
+
+            <div class="button">
+                <input type="reset" value="가입취소">
+                <input type="submit" value="회원가입">
+            </div>
+
+            </div>
+        </div>
+        </fieldset>
+
+
+
+        </from>
+    </div>
+</body>
+</html>
